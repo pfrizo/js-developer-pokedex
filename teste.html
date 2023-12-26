@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="teste.css">
+</head>
+<body>
+    <button onclick="openModal()">Abrir Modal</button>
+    
+    <div id="meuModal" class="modal">
+        <div class="modal-content">
+          <span onclick="closeModal()" style="float: right; cursor: pointer;">&times;</span>
+          <p>Conteúdo do Modal</p>
+        </div>
+      </div>
+
+    <script>
+        function openModal() {
+    document.getElementById('meuModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('meuModal').style.display = 'none';
+  }
+    </script>
+</body>
+</html>
