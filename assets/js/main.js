@@ -34,9 +34,9 @@ function loadPokemonItems(offset, limit) {
 
 function convertPokemonToModal(pokemon){
     return `
-        <div class="modal-content">
+        <div class="modal-content ${pokemon.type}">
             <span onclick="closeDetails()" style="float: right; cursor: pointer;">&times;</span>
-            <div class="pokemon ${pokemon.type}">
+            <div class="pokemon">
                 <span class="number">#${pokemon.number}</span>
                 <span class="name">${pokemon.name}</span>
                 <div class="detail">
@@ -44,9 +44,70 @@ function convertPokemonToModal(pokemon){
                          alt="${pokemon.name}">
                 </div>
             </div>
-            <ol class="types">
-                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+            <div class="stats-section">
+                <ol class="types">
+                        ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
                 </ol>
+            
+                <h4 id="base-stats" class="${pokemon.type}-text">Base Stats</h4>
+
+                <div id="stats">
+          <div class="stat-row">
+              <div class="stat-desc ${pokemon.type}-text">HP</div>
+              <div class="stat-number ${pokemon.type}-text">${pokemon.statsValue[0]}</div>
+              <div class="stat-bar">
+                  <div class="bar-outer">
+                      <div class="bar-inner ${pokemon.type}" style="width: ${pokemon.statsValue[0]}%"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="stat-row">
+              <div class="stat-desc ${pokemon.type}-text">ATK</div>
+              <div class="stat-number ${pokemon.type}-text">${pokemon.statsValue[1]}</div>
+              <div class="stat-bar">
+                  <div class="bar-outer">
+                      <div class="bar-inner ${pokemon.type}" style="width: ${pokemon.statsValue[1]}%"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="stat-row">
+              <div class="stat-desc ${pokemon.type}-text">DEF</div>
+              <div class="stat-number ${pokemon.type}-text">${pokemon.statsValue[2]}</div>
+              <div class="stat-bar">
+                  <div class="bar-outer">
+                      <div class="bar-inner ${pokemon.type}" style="width: ${pokemon.statsValue[2]}%"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="stat-row">
+              <div class="stat-desc ${pokemon.type}-text">SATK</div>
+              <div class="stat-number ${pokemon.type}-text">${pokemon.statsValue[3]}</div>
+              <div class="stat-bar">
+                  <div class="bar-outer">
+                      <div class="bar-inner ${pokemon.type}" style="width: ${pokemon.statsValue[3]}%"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="stat-row">
+              <div class="stat-desc ${pokemon.type}-text">SDEF</div>
+              <div class="stat-number ${pokemon.type}-text">${pokemon.statsValue[4]}</div>
+              <div class="stat-bar">
+                  <div class="bar-outer">
+                      <div class="bar-inner ${pokemon.type}" style="width: ${pokemon.statsValue[4]}%"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="stat-row">
+              <div class="stat-desc ${pokemon.type}-text">SPD</div>
+              <div class="stat-number ${pokemon.type}-text">${pokemon.statsValue[5]}</div>
+              <div class="stat-bar">
+                  <div class="bar-outer">
+                      <div class="bar-inner ${pokemon.type}" style="width: ${pokemon.statsValue[5]}%"></div>
+                  </div>
+              </div>
+                </div>
+                </div>
+            </div>
         </div>
     `
 }
